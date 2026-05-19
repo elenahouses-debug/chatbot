@@ -1,13 +1,11 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": [
-    "ultracite/biome/core",
-    "ultracite/biome/next",
-    "ultracite/biome/react"
-  ],
   "formatter": {
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSpacing": true
   },
   "files": {
     "includes": [
@@ -19,37 +17,34 @@
       "!hooks/use-mobile.ts"
     ]
   },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
   "linter": {
     "rules": {
       "suspicious": {
         "noExplicitAny": "off",
-        "noUnknownAtRules": "off",
         "noConsole": "off",
         "noBitwiseOperators": "off"
       },
       "style": {
         "noMagicNumbers": "off",
-        "noNestedTernary": "off",
-        "useConsistentTypeDefinitions": "off"
-      },
-      "nursery": {
-        "noUnnecessaryConditions": "off",
-        "useSortedClasses": "off"
+        "noNestedTernary": "off"
       },
       "complexity": {
-        "noExcessiveCognitiveComplexity": "off",
-        "useSimplifiedLogicExpression": "off"
-      },
-      "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noUselessFragments": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
-        "useImageSize": "off"
-      },
-      "performance": {
-        "noBarrelFile": "off",
-        "useTopLevelRegex": "off"
+        "useImageSize": "off",
+        "noUndeclaredVariables": "off"
       }
     }
   }
