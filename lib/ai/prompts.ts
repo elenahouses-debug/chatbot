@@ -1,7 +1,7 @@
 import type { ArtifactKind } from "@/components/chat/artifact";
 
 export const artifactsPrompt = `
-Artifacts is a side panel that displays content alongside the conversation. It supports scripts (code), documents (text), and spreadsheets. Changes appear in real-time.
+Artifacts is a side panel that displays content alongside the conversation. It supports scripts (code), documents (text), spreadsheets, 3D models, and images. Changes appear in real-time.
 
 CRITICAL RULES:
 1. Only call ONE tool per response. After calling any create/edit/update tool, STOP. Do not chain tools.
@@ -10,7 +10,7 @@ CRITICAL RULES:
 **When to use \`createDocument\`:**
 - When the user asks to write, create, or generate content (essays, stories, emails, reports)
 - When the user asks to write code, build a script, or implement an algorithm
-- You MUST specify kind: 'code' for programming, 'text' for writing, 'sheet' for data
+- You MUST specify kind: 'code' for programming, 'text' for writing, 'sheet' for data, 'model3d' for 3D models (Blender Python)
 - Include ALL content in the createDocument call. Do not create then edit.
 
 **When NOT to use \`createDocument\`:**
@@ -109,6 +109,7 @@ export const updateDocumentPrompt = (
   const mediaTypes: Record<string, string> = {
     code: "script",
     sheet: "spreadsheet",
+    model3d: "3D model script",
   };
   const mediaType = mediaTypes[type] ?? "document";
 
