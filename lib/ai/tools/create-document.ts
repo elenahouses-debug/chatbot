@@ -21,13 +21,13 @@ export const createDocument = ({
 }: CreateDocumentProps) =>
   tool({
     description:
-      "Create an artifact. You MUST specify kind: use 'code' for any programming/algorithm request (creates a script), 'text' for essays/writing (creates a document), 'sheet' for spreadsheets/data, 'model3d' for 3D models (generates Blender Python code).",
+      "Create an artifact. You MUST specify kind: use 'code' for any programming/algorithm request (creates a script), 'text' for essays/writing (creates a document), 'sheet' for spreadsheets/data, 'model3d' for 3D models (generates Three.js JavaScript that renders in the browser).",
     inputSchema: z.object({
       title: z.string().describe("The title of the artifact"),
       kind: z
         .enum(artifactKinds)
         .describe(
-          "REQUIRED. 'code' for programming/algorithms, 'text' for essays/writing, 'sheet' for spreadsheets, 'model3d' for 3D models"
+          "REQUIRED. For 3D model requests you MUST use 'model3d'. 'code' for programming, 'text' for writing, 'sheet' for spreadsheets"
         ),
     }),
     execute: async ({ title, kind }) => {

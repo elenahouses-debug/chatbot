@@ -10,7 +10,7 @@ CRITICAL RULES:
 **When to use \`createDocument\`:**
 - When the user asks to write, create, or generate content (essays, stories, emails, reports)
 - When the user asks to write code, build a script, or implement an algorithm
-- You MUST specify kind: 'code' for programming, 'text' for writing, 'sheet' for data, 'model3d' for 3D models (Blender Python)
+- You MUST specify kind: 'code' for programming, 'text' for writing, 'sheet' for data, 'model3d' for 3D models (generates Three.js JavaScript, renders instantly in the browser)
 - Include ALL content in the createDocument call. Do not create then edit.
 
 **When NOT to use \`createDocument\`:**
