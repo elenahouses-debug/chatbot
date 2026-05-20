@@ -25,12 +25,7 @@ export const model3dArtifact = new Artifact<"model3d", Model3dMetadata>({
       setArtifact((draftArtifact) => ({
         ...draftArtifact,
         content: streamPart.data,
-        isVisible:
-          draftArtifact.status === "streaming" &&
-          draftArtifact.content.length > 200 &&
-          draftArtifact.content.length < 250
-            ? true
-            : draftArtifact.isVisible,
+        isVisible: draftArtifact.content.length > 50 || draftArtifact.isVisible,
         status: "streaming",
       }));
     }
